@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f5f3e8">
+  <meta name="description" content="午饭晚饭不知道吃什么？选好预算，转一下就开饭！80多种美食、口味筛选、自定义菜单，选择困难到此为止。">
+  <meta property="og:title" content="吃点啥 · 今天这顿，转了算">
+  <meta property="og:description" content="选预算、选口味，把今天吃什么交给命运转盘。">
+  <title>吃点啥 · 今天这顿，转了算</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="./assets/zcool-kuaile.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <svg class="icon-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 2 2.6 7.4L22 12l-7.4 2.6L12 22l-2.6-7.4L2 12l7.4-2.6Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M3 6h3c4 0 7 12 11 12h4m-4-4 4 4-4 4M3 18h3c2 0 4-3 6-6s3-6 5-6h4m-4-4 4 4-4 4"/></symbol>
+    <symbol id="i-sound" viewBox="0 0 24 24"><path d="m11 4-6 5H2v6h3l6 5ZM16 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></symbol>
+    <symbol id="i-mute" viewBox="0 0 24 24"><path d="m11 4-6 5H2v6h3l6 5ZM16 9l6 6m0-6-6 6"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 16V3m-5 5 5-5 5 5M5 12H3v9h18v-9h-2"/></symbol>
+    <symbol id="i-soup" viewBox="0 0 24 24"><path d="M3 12h18c0 5-4 8-9 8s-9-3-9-8Zm4 9h10M7 8c-3-3 3-3 0-6m5 6c-3-3 3-3 0-6m5 6c-3-3 3-3 0-6"/></symbol>
+    <symbol id="i-noodle" viewBox="0 0 24 24"><path d="M3 13h18c-1 5-4 7-9 7s-8-2-9-7ZM2 4h20M3 7h18M8 4v9m4-9v9m4-9v9M8 22h8"/></symbol>
+    <symbol id="i-rice" viewBox="0 0 24 24"><path d="M3 12h18c0 5-4 8-9 8s-9-3-9-8ZM5 12C2 8 6 6 8 7c0-5 7-5 7-1 4-1 7 3 4 6M8 22h8"/></symbol>
+    <symbol id="i-burger" viewBox="0 0 24 24"><path d="M3 10c0-10 18-10 18 0ZM2 14l4-2 5 3 6-3 5 2M3 17h18v2c0 2-18 2-18 0ZM8 6h.1m4-1h.1m4 1h.1"/></symbol>
+    <symbol id="i-chicken" viewBox="0 0 24 24"><path d="m10 15-5 5c-3 2-6-2-3-3-3-2 1-5 3-2l5-5m-1-1c5-10 18-2 11 5-5 6-13 2-11-5Z"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 3C3 1 1 12 7 17 13 23 23 17 20 3ZM3 22 17 7M7 13h5v5"/></symbol>
+    <symbol id="i-cake" viewBox="0 0 24 24"><path d="M3 11h18v10H3ZM3 14c3 4 5-3 9 0s5 0 9 0M6 11V8h12v3M12 8V5m0 0c-5-1-1-5 0-4 1 1 4 4 0 4Z"/></symbol>
+    <symbol id="i-snack" viewBox="0 0 24 24"><path d="m6 4 12 16M9 2c4 0 5 5 1 6S4 3 9 2Zm5 7c4 0 5 5 1 6s-6-5-1-6Zm4 7c4 0 5 5 1 6s-6-5-1-6Z"/></symbol>
+    <symbol id="i-wrap" viewBox="0 0 24 24"><path d="M4 9 12 22 21 9M3 9h18C22 1 4-1 3 9Zm3 4h12M7 6h.1m5-2h.1m5 2h.1"/></symbol>
+    <symbol id="i-pizza" viewBox="0 0 24 24"><path d="m4 5 8 17L21 5C16 1 8 1 4 5Zm0 0c5 3 12 3 17 0M10 10h.1m6 1h.1m-4 5h.1"/></symbol>
+    <symbol id="i-dumpling" viewBox="0 0 24 24"><path d="M2 10c0 14 20 14 20 0M2 10c3-2 3 3 6 0s3 3 6 0 4 3 8 0M2 10c0-10 20-10 20 0M8 6l2 2m5-2-2 2"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  </defs></svg>
+  <div class="ticker" aria-hidden="true"><div>人生苦短 · 先吃再说 <span>✦</span> 今天这顿，转了算 <span>✦</span> 快乐不限量，预算你来定 <span>✦</span> 人生苦短 · 先吃再说 <span>✦</span> 今天这顿，转了算 <span>✦</span> 快乐不限量，预算你来定 <span>✦</span></div></div>
+  <header class="site-header">
+    <a href="#main" class="brand" aria-label="吃点啥首页"><span class="brand-mark"><svg><use href="#i-noodle"/></svg></span><span>吃点啥<span class="brand-dot">.</span></span></a>
+    <nav aria-label="主导航"><a class="nav-active" href="#main">命运转盘</a><a href="#menu">我的菜单</a><a href="#history">干饭记录</a></nav>
+    <div class="header-actions"><button id="sound-button" class="icon-button" aria-label="开启音效" aria-pressed="false"><svg><use href="#i-mute"/></svg></button><button id="share-button" class="share-button"><svg><use href="#i-share"/></svg><span>分享快乐</span></button></div>
+  </header>
+  <main id="main">
+    <div class="playground">
+      <section class="control-desk" aria-labelledby="hero-heading">
+        <div class="title-wrap"><h1 id="hero-heading">今天吃什么？<br><span>让命运来开饭！</span></h1><span class="hand-star" aria-hidden="true">✳</span></div>
+        <p class="intro">脑袋可以空空，肚子不能空空。<br>选好你的心情，剩下的交给这一转。</p>
+        <form id="filter-form" class="filter-form">
+          <fieldset><legend>吃哪一顿<span>跟着饭点走</span></legend><div class="meal-options" id="meal-options">
+            <label><input type="radio" name="meal" value="breakfast"><span>早餐</span></label>
+            <label><input type="radio" name="meal" value="lunch" checked><span>午饭</span></label>
+            <label><input type="radio" name="meal" value="dinner"><span>晚饭</span></label>
+            <label><input type="radio" name="meal" value="snack"><span>嘴馋了</span></label>
+          </div></fieldset>
+          <fieldset><legend>今天的预算<span>人均参考上限</span></legend><div class="budget-options">
+            <label><input type="radio" name="budget" value="0" checked><span>随便吃</span></label>
+            <label><input type="radio" name="budget" value="15"><span>¥15 内</span></label>
+            <label><input type="radio" name="budget" value="25"><span>¥25 内</span></label>
+            <label><input type="radio" name="budget" value="40"><span>¥40 内</span></label>
+            <label><input type="radio" name="budget" value="60"><span>¥60 内</span></label>
+          </div></fieldset>
+          <fieldset><legend>想吃哪一口<span>快乐没有标准答案</span></legend><div class="vibe-options">
+            <label><input type="radio" name="vibe" value="all" checked><span>都可以</span></label>
+            <label><input type="radio" name="vibe" value="soul"><span>正经干饭</span></label>
+            <label><input type="radio" name="vibe" value="junk"><span>垃圾快乐餐</span></label>
+            <label><input type="radio" name="vibe" value="heavy"><span>重口上头</span></label>
+            <label><input type="radio" name="vibe" value="light"><span>清爽一点</span></label>
+            <label><input type="radio" name="vibe" value="sweet"><span>甜口万岁</span></label>
+          </div></fieldset>
+          <div class="check-options"><label><input type="checkbox" name="noSpicy">不吃辣</label><label><input type="checkbox" name="noRepeat">今天别重复</label></div>
+        </form>
+        <div class="food-art"><div class="art-copy">快乐是<br><strong>可以吃出来的。</strong><span>HAPPINESS, SERVED.</span></div><img src="./assets/food-party.webp" alt="粉色面碗、香辣炸鸡和榴莲千层组成的美食派对" width="760" height="695" fetchpriority="high"><span class="art-sticker">好吃<br>万岁！</span></div>
+      </section>
+      <section class="wheel-desk" aria-label="美食命运转盘">
+        <div class="wheel-heading"><span class="live-dot"></span><span id="pool-status">正在准备好吃的…</span><button id="shuffle-button" class="text-button"><svg><use href="#i-shuffle"/></svg>换一桌</button></div>
+        <div class="wheel-stage" id="wheel-stage">
+          <div class="orbit orbit-one" aria-hidden="true"></div><div class="orbit orbit-two" aria-hidden="true"></div>
+          <span class="stage-spark spark-one" aria-hidden="true">✦</span><span class="stage-spark spark-two" aria-hidden="true">✳</span>
+          <div class="wheel-pointer" aria-hidden="true"><svg viewBox="0 0 40 58"><path d="M3 4Q20-2 37 4L20 53Z"/></svg></div>
+          <div class="wheel-frame"><div class="wheel-rotor" id="wheel-rotor"><svg id="food-wheel" viewBox="0 0 600 600" role="img" aria-label="当前候选美食转盘"></svg></div><button id="center-spin" class="wheel-center" aria-label="开始转盘"><span>开转</span><svg><use href="#i-arrow"/></svg></button></div>
+          <div id="empty-state" class="empty-state" hidden><svg><use href="#i-soup"/></svg><h2>这桌暂时凑不齐啦</h2><p>试试提高预算、换个口味，<br>或者把被排除的好吃的请回来。</p><button id="reset-filters">重置筛选</button></div>
+        </div>
+        <div class="spin-controls"><button id="spin-button" class="spin-button"><span id="spin-label">转一下，就开饭</span><svg><use href="#i-arrow"/></svg></button><p id="spin-hint">选择困难到此为止，命运负责安排。</p></div>
+        <div class="result-ticket" id="result-ticket" hidden aria-live="polite" aria-atomic="true"><div class="result-main"><span class="result-icon" id="result-icon"></span><div><p id="result-pretitle">今天就吃这个！</p><h2 id="result-name"></h2><p id="result-detail"></p></div><span class="result-price" id="result-price"></span></div><p class="result-note" id="result-note"></p><div class="result-actions"><button id="confirm-food"><svg><use href="#i-check"/></svg>就它了，开吃！</button><button id="exclude-result">这道先不要</button></div></div>
+      </section>
+    </div>
+    <div class="food-marquee" aria-hidden="true"><span>一顿不纠结</span><svg><use href="#i-spark"/></svg><span>快乐不打烊</span><svg><use href="#i-spark"/></svg><span>干饭要认真</span><svg><use href="#i-spark"/></svg><span>胃口说了算</span><svg><use href="#i-spark"/></svg><span>一顿不纠结</span></div>
+    <section class="menu-section" id="menu" aria-labelledby="menu-title"><div class="section-heading"><div><h2 id="menu-title">你的快乐菜单<span id="menu-count"></span></h2><p>都是潜力选手。不想吃的点一下排除，喜欢的留在盘里。</p></div><button id="restore-button" class="outline-button" hidden>恢复排除项</button></div>
+      <div class="menu-toolbar"><label class="search-label"><span>找道菜</span><input id="menu-search" type="search" placeholder="搜索螺蛳粉、炸鸡…" maxlength="40" autocomplete="off"></label><span class="price-note">价格为单人份参考区间，以实际商家为准</span></div>
+      <div class="menu-grid" id="menu-grid"></div><button id="expand-menu" class="expand-button">展开全部菜单</button>
+      <details class="custom-menu" id="custom-menu"><summary><svg><use href="#i-plus"/></svg>藏着一家心头好？加进转盘里<span>自定义菜单</span></summary><form id="custom-form"><label>美食名字<input name="name" placeholder="例如：楼下的酸菜炒饭" maxlength="24" required></label><label>参考价（元）<input name="price" type="number" min="1" max="999" step="1" placeholder="20" required></label><label>口味分类<select name="vibe"><option value="soul">正经干饭</option><option value="junk">垃圾快乐餐</option><option value="heavy">重口上头</option><option value="light">清爽一点</option><option value="sweet">甜口万岁</option></select></label><label class="custom-spicy"><input name="spicy" type="checkbox">含辣</label><button type="submit">加入菜单 <svg><use href="#i-plus"/></svg></button><p>自定义菜单与记录保存在当前浏览器；分享链接会带上筛选条件。</p></form></details>
+    </section>
+    <section class="history-section" id="history" aria-labelledby="history-title"><div class="section-heading"><div><h2 id="history-title">最近都吃了啥</h2><p>点击“就它了”才会记下来，犹豫不算数。</p></div><button id="clear-history" class="text-button" hidden>清空记录</button></div><div id="history-list" class="history-list"></div></section>
+  </main>
+  <footer><a href="#main" class="footer-brand">吃点啥.</a><span>愿每一顿，都吃得开心。</span><span>纯粹干饭 · 不用登录 · 快乐免费</span></footer>
+  <div id="toast" class="toast" role="status" hidden></div><div id="confetti" class="confetti" aria-hidden="true"></div>
+  <noscript><p class="no-script">转盘需要 JavaScript。请在浏览器中启用 JavaScript，再来决定今天吃什么。</p></noscript>
+</body>
+</html>
